@@ -48,11 +48,11 @@
         </property>
     </bean>
 
-    <!-- 配置DataSourceTransactionManager -->
+    <!-- 配置DataSourceTransactionManager (配置事物管理)-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource"/>
 
-    <!-- 开启annotation注解事务 -->
+    <!-- 开启annotation注解事务 (申明式事物，使用事物注解的方式去控制业务层的事物)-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

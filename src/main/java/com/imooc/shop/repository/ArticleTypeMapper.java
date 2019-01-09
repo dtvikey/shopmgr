@@ -1,5 +1,10 @@
 package com.imooc.shop.repository;
 
+import com.imooc.shop.bean.ArticleType;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 /**
  * ArticleTypeMapper 数据访问类
  * @author xlei @qq 251425887 @tel 13352818008
@@ -9,6 +14,7 @@ package com.imooc.shop.repository;
  */
 public interface ArticleTypeMapper {
 
-
+    @Select("select * from ec_article_type")
+    List<ArticleType> getArticleTypes();
 
 }
