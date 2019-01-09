@@ -18,6 +18,7 @@ public class ShopServiceImpl implements ShopService{
     @Resource
     private ArticleTypeMapper articleTypeMapper;
 
+
     public List<ArticleType> getArticleTypes() {
         return articleTypeMapper.getArticleTypes();
     }
