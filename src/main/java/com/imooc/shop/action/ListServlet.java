@@ -65,19 +65,22 @@ public class ListServlet extends HttpServlet {
     }
 
     private void getAll() throws ServletException, IOException {
+        String secondType = request.getParameter("secondType");
+        request.setAttribute("secondType",secondType);
         //接收一级类型编号查询
         String typeCode = request.getParameter("typeCode");
 
         //根据一级类型查询对应的二级类型
         if(!StringUtils.isEmpty(typeCode)){
             List<ArticleType> secondTypes = shopService.loadSecondTypes(typeCode);
+            request.setAttribute("typeCode",typeCode);
             request.setAttribute("secondTypes",secondTypes);
         }
 
         //1.查询所有的一级类型数据
         List<ArticleType> firstArticleTypes = shopService.loadFirstArticleTypes();
         //2.查询所有的商品信息
-        List<Article> articles = shopService.searchArticles(typeCode);
+        List<Article> articles = shopService.searchArticles(typeCode,secondType);
         request.setAttribute("firstArticleTypes",firstArticleTypes);
         request.setAttribute("articles",articles);
         request.getRequestDispatcher("/WEB-INF/jsp/list.jsp").forward(request,response);

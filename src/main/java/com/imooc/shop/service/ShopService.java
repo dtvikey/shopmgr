@@ -17,7 +17,7 @@ public interface ShopService {
 
     List<ArticleType> loadFirstArticleTypes();
 
-    List<Article> searchArticles(String typeCode);
+    List<Article> searchArticles(String typeCode,String secondType);
 
 
     List<ArticleType> loadSecondTypes(String typeCode);

@@ -251,7 +251,9 @@
         // 等整个加载完成以后为二级类型绑定切换事件
         $(function(){
             $("#secondType").change(function(){
+
                     window.location = "${pageContext.request.contextPath}/list?method=getAll&typeCode=${typeCode}&secondType="+this.value;
+
             });
 
             // 把二级类型选中
