@@ -5,4 +5,8 @@
 
 <mapper namespace="com.imooc.shop.repository.ArticleMapper">
 
+	<select id="searchArticles" resultType="Article">
+		select * from ec_article
+	</select>
+
 </mapper>

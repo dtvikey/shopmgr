@@ -1,7 +1,9 @@
 package com.imooc.shop.service;
 
+import com.imooc.shop.bean.Article;
 import com.imooc.shop.bean.ArticleType;
 import com.imooc.shop.bean.User;
+import com.imooc.shop.repository.ArticleMapper;
 import com.imooc.shop.repository.ArticleTypeMapper;
 import com.imooc.shop.repository.UserMapper;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class ShopServiceImpl implements ShopService{
     // 得到数据访问层对象
     @Resource
     private ArticleTypeMapper articleTypeMapper;
+
+    @Resource
+    private ArticleMapper articleMapper;
 
     @Resource
     private UserMapper userMapper;
@@ -63,5 +68,16 @@ public class ShopServiceImpl implements ShopService{
 
         }
         return results;
+    }
+
+    @Override
+    public List<ArticleType> loadFirstArticleTypes() {
+        List<ArticleType> articleTypes = articleTypeMapper.getFirstArticleTypes();
+        return articleTypes;
+    }
+
+    @Override
+    public List<Article> searchArticles() {
+        return articleMapper.searchArticles();
     }
 }

@@ -13,4 +13,6 @@ public interface ArticleTypeMapper {
     @Select("select * from ec_article_type")
     List<ArticleType> getArticleTypes();
 
+    @Select("select * from ec_article_type where length(code)=4")
+    List<ArticleType> getFirstArticleTypes();
 }
