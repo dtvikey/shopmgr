@@ -120,7 +120,7 @@
 		              </p>
               </span>
                     </div>
-                </c:forEach>
+         </c:forEach>
             </div>
             <div class="row"  >
                 <!-- 分页标签 -->
