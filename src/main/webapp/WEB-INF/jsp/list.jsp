@@ -252,7 +252,7 @@
         $(function(){
             $("#secondType").change(function(){
                     window.location = "${pageContext.request.contextPath}/list?method=getAll&typeCode=${typeCode}&secondType="+this.value;
-            }) ;
+            });
 
             // 把二级类型选中
             $("#secondType").val("${secondType}");

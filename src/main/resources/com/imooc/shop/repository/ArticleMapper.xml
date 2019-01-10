@@ -9,7 +9,7 @@
 		select * from ec_article
 		<where>
             <if test="typeCode!=null&amp;&amp;typeCode!=''">
-                where TYPE_CODE like CONCAT("",#{typeCode},"%")
+                and TYPE_CODE like CONCAT("",#{typeCode},"%")
             </if>
 		</where>
 	</select>
