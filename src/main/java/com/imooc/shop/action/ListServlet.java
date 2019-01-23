@@ -50,6 +50,7 @@ public class ListServlet extends HttpServlet {
 
             this.request = req;
             this.response = resp;
+            request.setCharacterEncoding("UTF-8");
 
            String method = req.getParameter("method");
            switch (method){
@@ -65,7 +66,20 @@ public class ListServlet extends HttpServlet {
     }
 
     private void getAll() throws ServletException, IOException {
+
+        // 考虑分页查询
+        Pager pager = new Pager();
+        // 看是否传入了分页参数的页码
+        String pageIndex = request.getParameter("pageIndex");
+        if(!StringUtils.isEmpty(pageIndex)){
+            int pSize = Integer.valueOf(pageIndex);
+            pager.setPageIndex(pSize);
+        }
+
+
         String secondType = request.getParameter("secondType");
+        String title = request.getParameter("title");
+        request.setAttribute("title",title);
         request.setAttribute("secondType",secondType);
         //接收一级类型编号查询
         String typeCode = request.getParameter("typeCode");
@@ -80,8 +94,9 @@ public class ListServlet extends HttpServlet {
         //1.查询所有的一级类型数据
         List<ArticleType> firstArticleTypes = shopService.loadFirstArticleTypes();
         //2.查询所有的商品信息
-        List<Article> articles = shopService.searchArticles(typeCode,secondType);
+        List<Article> articles = shopService.searchArticles(typeCode,secondType,title,pager);
         request.setAttribute("firstArticleTypes",firstArticleTypes);
+        request.setAttribute("pager",pager);
         request.setAttribute("articles",articles);
         request.getRequestDispatcher("/WEB-INF/jsp/list.jsp").forward(request,response);
     }

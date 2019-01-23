@@ -6,6 +6,7 @@ import com.imooc.shop.bean.User;
 import com.imooc.shop.repository.ArticleMapper;
 import com.imooc.shop.repository.ArticleTypeMapper;
 import com.imooc.shop.repository.UserMapper;
+import com.imooc.shop.utils.Pager;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -83,9 +84,9 @@ public class ShopServiceImpl implements ShopService{
     }
 
     @Override
-    public List<Article> searchArticles(String typeCode,String secondType) {
+    public List<Article> searchArticles(String typeCode, String secondType, String title, Pager pager) {
 
-        return articleMapper.searchArticles(typeCode,secondType);
+        return articleMapper.searchArticles(typeCode,secondType,title,pager);
 
     }
 

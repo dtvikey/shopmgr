@@ -158,7 +158,7 @@
             <div class="modal-body ">
                 <div align="center">
                     <span style="color:red;"></span>
-                    <form name="articleform" class="form-horizontal" action="<c:url value="/list?method=addArticle&typeCode=${typeCode}&secondType=${secondType}&title=${title} "/>" method="post" enctype="multipart/form-data">
+                    <form name="articleform" class="form-horizontal" action="<c:url value="/list?method=addArticle&typeCode=${typeCode}&secondType=${secondType}&title=${title}"/>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="col-sm-3 control-label">类型编号：</label>
                             <div class="col-sm-4">
