@@ -2,10 +2,6 @@ package com.imooc.shop.bean;
 
 /**
  * ArticleType 数据传输类
- * @author xlei @qq 251425887 @tel 13352818008
- * @Email dlei0009@163.com
- * @date 2019-01-07 16:38:03
- * @version 1.0
  */
 public class ArticleType implements java.io.Serializable{
 
@@ -42,5 +38,4 @@ public class ArticleType implements java.io.Serializable{
 				", remark='" + remark + '\'' +
 				'}';
 	}
-
 }

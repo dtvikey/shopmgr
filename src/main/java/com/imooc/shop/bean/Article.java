@@ -2,10 +2,6 @@ package com.imooc.shop.bean;
 
 /**
  * Article 数据传输类
- * @author xlei @qq 251425887 @tel 13352818008
- * @Email dlei0009@163.com
- * @date 2019-01-07 16:38:03
- * @version 1.0
  */
 public class Article implements java.io.Serializable{
 
@@ -20,7 +16,7 @@ public class Article implements java.io.Serializable{
 	private int storage;
 	private String image;
 	private String description;
-	private String typeCode;
+	private ArticleType articleType;
 	private java.util.Date createDate;
 	private String disabled;
 
@@ -85,12 +81,15 @@ public class Article implements java.io.Serializable{
 	public String getDescription(){
 		return this.description;
 	}
-	public void setTypeCode(String typeCode){
-		this.typeCode = typeCode;
+
+	public ArticleType getArticleType() {
+		return articleType;
 	}
-	public String getTypeCode(){
-		return this.typeCode;
+
+	public void setArticleType(ArticleType articleType) {
+		this.articleType = articleType;
 	}
+
 	public void setCreateDate(java.util.Date createDate){
 		this.createDate = createDate;
 	}

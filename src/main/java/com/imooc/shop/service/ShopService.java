@@ -24,4 +24,9 @@ public interface ShopService {
 
     List<ArticleType> loadSecondTypes(String typeCode);
 
+    void deleteById(String id);
+
+    Article getArticleById(String id);
+
+    void updateArticle(Article article);
 }

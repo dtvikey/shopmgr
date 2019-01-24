@@ -84,11 +84,30 @@ public class ShopServiceImpl implements ShopService{
     }
 
     @Override
-    public List<Article> searchArticles(String typeCode, String secondType, String title, Pager pager) {
-
-        return articleMapper.searchArticles(typeCode,secondType,title,pager);
-
+    public void deleteById(String id) {
+        articleMapper.deleteById(id);
     }
+
+    @Override
+    public Article getArticleById(String id) {
+        return articleMapper.getArticleById(id);
+    }
+
+    @Override
+    public void updateArticle(Article article) {
+        articleMapper.update(article);
+    }
+
+    @Override
+    public List<Article> searchArticles(String typeCode, String secondType, String title, Pager pager) {
+        //界面需要当前总共有多少条数据
+        //查询当前条件下总共有多少条数据
+        int count = articleMapper.count(typeCode,secondType,title);
+        pager.setTotalCount(count);
+        return articleMapper.searchArticles(typeCode,secondType,title,pager);
+    }
+
+
 
 
 

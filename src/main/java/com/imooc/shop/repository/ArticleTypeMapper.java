@@ -11,6 +11,9 @@ import java.util.List;
  */
 public interface ArticleTypeMapper {
 
+    @Select("select * from ec_article_type where code=#{xxx}")
+    ArticleType getTypeByCode(String typeCode);
+
     @Select("select * from ec_article_type")
     List<ArticleType> getArticleTypes();
 
